@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cPi-hr-uh7">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie ListVC-->
+        <scene sceneID="sTX-Ec-wna">
+            <objects>
+                <viewController id="cPi-hr-uh7" customClass="MovieListVC" customModule="alamofire_sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F9L-Eh-c1q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGO-GA-P3H">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FGO-GA-P3H" firstAttribute="leading" secondItem="gEv-b7-NES" secondAttribute="leading" id="311-mn-Rvc"/>
+                            <constraint firstItem="gEv-b7-NES" firstAttribute="bottom" secondItem="FGO-GA-P3H" secondAttribute="bottom" id="PrB-Mh-q77"/>
+                            <constraint firstItem="gEv-b7-NES" firstAttribute="trailing" secondItem="FGO-GA-P3H" secondAttribute="trailing" id="uk9-ZI-exz"/>
+                            <constraint firstItem="FGO-GA-P3H" firstAttribute="top" secondItem="gEv-b7-NES" secondAttribute="top" id="ukJ-qy-4Jn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gEv-b7-NES"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="FGO-GA-P3H" id="z73-mZ-859"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BTB-t4-MhQ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="80"/>
+        </scene>
+    </scenes>
+</document>
