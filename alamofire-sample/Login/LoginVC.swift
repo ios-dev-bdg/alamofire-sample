@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class LoginVC: UIViewController {
+class LoginVC: BaseVC {
 
     @IBOutlet weak var usernameTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
@@ -21,6 +21,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
+        self.showSpinner(onView: self.view)
         // Test => username: iOS_Dev, password: test1234
         self.requestLoginWithToken()
     }

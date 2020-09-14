@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListVC: UIViewController {
+class MovieListVC: BaseVC {
     
     @IBOutlet weak var tableView: UITableView?
     var list: [MovieModel]?
@@ -48,11 +48,14 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource {
 extension MovieListVC {
     
     func getPopularMovie() {
+        self.showSpinner(onView: self.view)
         APIDataSource.getPopularMovie(type: "popular", onSuccess: { response in
+            self.removeSpinner()
             self.list = response
             self.tableView?.reloadData()
         }, onFailed: { message  in
-            self.showAlert(title: "Perhatian!", message: message ?? "")
+            self.removeSpinner()
+            self.showAlert(title: "Warning!", message: message ?? "")
         })
     }
     
