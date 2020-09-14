@@ -13,7 +13,6 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var usernameTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
-    var requestToken: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +24,12 @@ class LoginVC: UIViewController {
         // Test => username: iOS_Dev, password: test1234
         self.requestLoginWithToken()
     }
-    
-
 }
 
 extension LoginVC {
     
     func requestLoginWithToken() {
-        APIDataSource.doGetToken(onSuccess: { (response) in
-            self.requestToken = JSON(response)["request_token"].stringValue
+        APIDataSource.doGetToken(onSuccess: { 
             DispatchQueue.main.async {
                 self.requestLogin()
             }
@@ -43,8 +39,8 @@ extension LoginVC {
     }
     
     func requestLogin() {
-        APIDataSource.doLogin(username: self.usernameTf.text ?? "", password: self.passwordTf.text ?? "", requestToken: self.requestToken ?? "", onSuccess: { (response) in
-            self.showAlert(title: "Information", message: "Login Successfully!")
+        APIDataSource.doLogin(username: self.usernameTf.text ?? "", password: self.passwordTf.text ?? "", onSuccess: { (response) in
+            self.showAlert(title: "Success!", message: response)
         }) { message in
             self.showAlert(title: "Warning!", message: message ?? "")
         }

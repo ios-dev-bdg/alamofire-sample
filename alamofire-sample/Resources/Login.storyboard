@@ -15,6 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Webinar GITS Indonesia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lge-9X-HDd">
+                                <rect key="frame" x="20" y="84" width="374" height="229"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fcn-6p-AxQ">
                                 <rect key="frame" x="20" y="353" width="374" height="160"/>
                                 <subviews>
@@ -56,9 +62,13 @@
                             <constraint firstItem="Fcn-6p-AxQ" firstAttribute="centerX" secondItem="WbR-Hu-wBQ" secondAttribute="centerX" id="13t-vn-M31"/>
                             <constraint firstItem="Fcn-6p-AxQ" firstAttribute="centerY" secondItem="WbR-Hu-wBQ" secondAttribute="centerY" constant="-20" id="4yl-Kp-Fh5"/>
                             <constraint firstItem="WbR-Hu-wBQ" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fcn-6p-AxQ" secondAttribute="bottom" constant="20" id="JTk-1b-5oJ"/>
+                            <constraint firstItem="Fcn-6p-AxQ" firstAttribute="top" secondItem="lge-9X-HDd" secondAttribute="bottom" constant="40" id="TLy-hv-2jK"/>
                             <constraint firstItem="Fcn-6p-AxQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WbR-Hu-wBQ" secondAttribute="top" constant="20" id="ZJf-Ur-Lub"/>
                             <constraint firstItem="Fcn-6p-AxQ" firstAttribute="leading" secondItem="WbR-Hu-wBQ" secondAttribute="leading" constant="20" id="eaz-2Y-EoS"/>
                             <constraint firstItem="WbR-Hu-wBQ" firstAttribute="trailing" secondItem="Fcn-6p-AxQ" secondAttribute="trailing" constant="20" id="hOz-sS-gPO"/>
+                            <constraint firstItem="lge-9X-HDd" firstAttribute="top" secondItem="WbR-Hu-wBQ" secondAttribute="top" constant="40" id="nps-g9-qyD"/>
+                            <constraint firstItem="lge-9X-HDd" firstAttribute="leading" secondItem="Fcn-6p-AxQ" secondAttribute="leading" id="r17-Tj-91w"/>
+                            <constraint firstItem="lge-9X-HDd" firstAttribute="trailing" secondItem="Fcn-6p-AxQ" secondAttribute="trailing" id="u4O-7s-1Td"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WbR-Hu-wBQ"/>
                     </view>
@@ -69,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8j-OQ-GUx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="54"/>
+            <point key="canvasLocation" x="37.681159420289859" y="53.571428571428569"/>
         </scene>
     </scenes>
 </document>

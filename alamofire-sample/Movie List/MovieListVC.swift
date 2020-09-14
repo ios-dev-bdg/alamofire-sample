@@ -49,11 +49,7 @@ extension MovieListVC {
     
     func getPopularMovie() {
         APIDataSource.getPopularMovie(type: "popular", onSuccess: { response in
-            let data = DAOPopularMovieBaseClass(object: response)
-            self.list = []
-            for dt in data.results ?? [] {
-                self.list?.append(MovieModel(date: dt.releaseDate, title: dt.title, backdrop: "\(APIConstant.moviesImageURL)\(dt.backdropPath ?? "")", overview: dt.overview))
-            }
+            self.list = response
             self.tableView?.reloadData()
         }, onFailed: { message  in
             self.showAlert(title: "Perhatian!", message: message ?? "")
