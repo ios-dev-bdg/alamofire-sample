@@ -8,6 +8,6 @@ target 'alamofire-sample' do
   # Pods for alamofire-sample
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'Kingfisher'
+  pod 'SDWebImage'
 
 end

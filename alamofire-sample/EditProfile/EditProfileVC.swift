@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+import SDWebImage
 
 class EditProfileVC: BaseVC {
 
@@ -82,7 +82,16 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
             self.removeSpinner()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 let url = "\(GITSApps.getImage())\(id)"
-                self.profileImg.kf.setImage(with: URL(string: url))
+                self.profileImg.setLoad(isLoad: true, style: .large)
+                self.profileImg.sd_setImage(with: URL(string: url)) { (img, err, cache, url) in
+                    self.profileImg.setLoad(isLoad: false, style: .large)
+                    if err == nil {
+                        self.profileImg.image = img
+                    } else {
+                        self.profileImg.image = nil
+                        self.profileImg.backgroundColor = UIColor.lightGray
+                    }
+                }
                 self.showAlert(title: "Success!", message: message)
             }
         }) { (error) in

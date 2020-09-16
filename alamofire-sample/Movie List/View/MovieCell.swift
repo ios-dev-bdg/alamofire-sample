@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import Kingfisher
+import SDWebImage
 
 class MovieCell: UITableViewCell {
 
@@ -28,10 +28,19 @@ class MovieCell: UITableViewCell {
     }
     
     func setupData(data: MovieModel?) {
-        backdropImg.kf.setImage(with: URL(string: data?.backdrop ?? ""))
-        titleLbl.text = data?.title ?? ""
-        descLbl.text = data?.overview ?? ""
-        dateLbl.text = data?.date ?? ""
+        self.backdropImg.setLoad(isLoad: true, style: .large)
+        self.backdropImg.sd_setImage(with: URL(string: data?.backdrop ?? "")) { (img, err, cache, url) in
+            self.backdropImg.setLoad(isLoad: false, style: .large)
+            if err == nil {
+                self.backdropImg.image = img
+            } else {
+                self.backdropImg.image = nil
+                self.backdropImg.backgroundColor = UIColor.lightGray
+            }
+        }
+        self.titleLbl.text = data?.title ?? ""
+        self.descLbl.text = data?.overview ?? ""
+        self.dateLbl.text = data?.date ?? ""
     }
 
 }
