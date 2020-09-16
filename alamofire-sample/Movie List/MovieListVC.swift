@@ -49,7 +49,7 @@ extension MovieListVC {
     
     func getPopularMovie() {
         self.showSpinner(onView: self.view)
-        APIDataSource.getPopularMovie(type: "popular", onSuccess: { response in
+        APIDataSource.getPopularMovieCodable(type: "popular", onSuccess: { response in
             self.removeSpinner()
             self.list = response
             self.tableView?.reloadData()

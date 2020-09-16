@@ -59,21 +59,35 @@ struct APIDataSource {
         })
     }
     
-    static func getPopularMovie(type: String, onSuccess: @escaping (_ result: [MovieModel]) -> Void, onFailed: @escaping onFailed) {
+    static func getPopularMovieMappable(type: String, onSuccess: @escaping (_ result: [MovieModel]) -> Void, onFailed: @escaping onFailed) {
         AF.request("\(APIConstant.MOVIE_BASE_URL)\(APIConstant.MOVIE_LIST)\(type)?api_key=\(APIConstant.MOVIE_API_KEY)", method: .get, parameters: [:], encoding: URLEncoding.default, headers: [:]).responseJSON(completionHandler: { response in
             switch response.result {
             case .failure(let error):
                 onFailed(error.errorDescription)
             case .success(let data):
                 print("Response: \(data)")
-                let dao = DAOPopularMovieBaseClass(object: JSON(data))
+                let dao = DAOMoviesMapBaseClass(object: JSON(data))
                 var list: [MovieModel] = []
-                for dt in dao.results ?? [] {
+                dao.results?.forEach({ (dt) in
                     list.append(MovieModel(date: dt.releaseDate, title: dt.title, backdrop: "\(APIConstant.MOVIE_IMAGE_URL)\(dt.backdropPath ?? "")", overview: dt.overview))
-                }
+                })
                 onSuccess(list)
             }
         })
+    }
+
+    static func getPopularMovieCodable(type: String, onSuccess: @escaping (_ result: [MovieModel]) -> Void, onFailed: @escaping onFailed) {
+        AF.request("\(APIConstant.MOVIE_BASE_URL)\(APIConstant.MOVIE_LIST)\(type)?api_key=\(APIConstant.MOVIE_API_KEY)", method: .get, parameters: [:], encoding: URLEncoding.default, headers: [:]).responseDecodable(of: DAOMoviesCodableBaseClass.self) { (response) in
+            if let dao = response.value {
+                var list: [MovieModel] = []
+                dao.results?.forEach({ (dt) in
+                    list.append(MovieModel(date: dt.releaseDate, title: dt.title, backdrop: "\(APIConstant.MOVIE_IMAGE_URL)\(dt.backdropPath ?? "")", overview: dt.overview))
+                })
+                onSuccess(list)
+            } else {
+                onFailed("Error Not Found")
+            }
+        }
     }
     
     static func reduceImage(image: UIImage, onSuccess: @escaping (_ img: UIImage?) -> Void) {

@@ -1,14 +1,14 @@
 //
-//  DAOPopularMovieBaseClass.swift
+//  DAOMoviesMapBaseClass.swift
 //
-//  Created by IRFAN TRIHANDOKO on 23/03/20
+//  Created by IRFAN TRIHANDOKO on 16/09/20
 //  Copyright (c) . All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
 
-public final class DAOPopularMovieBaseClass: NSCoding {
+public final class DAOMoviesMapBaseClass: NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {
@@ -21,7 +21,7 @@ public final class DAOPopularMovieBaseClass: NSCoding {
   // MARK: Properties
   public var totalResults: Int?
   public var page: Int?
-  public var results: [DAOPopularMovieResults]?
+  public var results: [DAOMoviesMapResults]?
   public var totalPages: Int?
 
   // MARK: SwiftyJSON Initializers
@@ -39,7 +39,7 @@ public final class DAOPopularMovieBaseClass: NSCoding {
   public required init(json: JSON) {
     totalResults = json[SerializationKeys.totalResults].int
     page = json[SerializationKeys.page].int
-    if let items = json[SerializationKeys.results].array { results = items.map { DAOPopularMovieResults(json: $0) } }
+    if let items = json[SerializationKeys.results].array { results = items.map { DAOMoviesMapResults(json: $0) } }
     totalPages = json[SerializationKeys.totalPages].int
   }
 
@@ -59,7 +59,7 @@ public final class DAOPopularMovieBaseClass: NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.totalResults = aDecoder.decodeObject(forKey: SerializationKeys.totalResults) as? Int
     self.page = aDecoder.decodeObject(forKey: SerializationKeys.page) as? Int
-    self.results = aDecoder.decodeObject(forKey: SerializationKeys.results) as? [DAOPopularMovieResults]
+    self.results = aDecoder.decodeObject(forKey: SerializationKeys.results) as? [DAOMoviesMapResults]
     self.totalPages = aDecoder.decodeObject(forKey: SerializationKeys.totalPages) as? Int
   }
 

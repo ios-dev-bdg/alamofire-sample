@@ -1,14 +1,14 @@
 //
-//  DAOPopularMovieResults.swift
+//  DAOMoviesMapResults.swift
 //
-//  Created by IRFAN TRIHANDOKO on 23/03/20
+//  Created by IRFAN TRIHANDOKO on 16/09/20
 //  Copyright (c) . All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
 
-public final class DAOPopularMovieResults: NSCoding {
+public final class DAOMoviesMapResults: NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {
@@ -18,12 +18,12 @@ public final class DAOPopularMovieResults: NSCoding {
     static let voteCount = "vote_count"
     static let overview = "overview"
     static let originalTitle = "original_title"
-    static let voteAverage = "vote_average"
     static let popularity = "popularity"
-    static let id = "id"
-    static let originalLanguage = "original_language"
     static let releaseDate = "release_date"
+    static let id = "id"
     static let video = "video"
+    static let originalLanguage = "original_language"
+    static let voteAverage = "vote_average"
     static let title = "title"
     static let adult = "adult"
   }
@@ -35,12 +35,12 @@ public final class DAOPopularMovieResults: NSCoding {
   public var voteCount: Int?
   public var overview: String?
   public var originalTitle: String?
-  public var voteAverage: Float?
   public var popularity: Float?
-  public var id: Int?
-  public var originalLanguage: String?
   public var releaseDate: String?
+  public var id: Int?
   public var video: Bool? = false
+  public var originalLanguage: String?
+  public var voteAverage: Float?
   public var title: String?
   public var adult: Bool? = false
 
@@ -63,12 +63,12 @@ public final class DAOPopularMovieResults: NSCoding {
     voteCount = json[SerializationKeys.voteCount].int
     overview = json[SerializationKeys.overview].string
     originalTitle = json[SerializationKeys.originalTitle].string
-    voteAverage = json[SerializationKeys.voteAverage].float
     popularity = json[SerializationKeys.popularity].float
-    id = json[SerializationKeys.id].int
-    originalLanguage = json[SerializationKeys.originalLanguage].string
     releaseDate = json[SerializationKeys.releaseDate].string
+    id = json[SerializationKeys.id].int
     video = json[SerializationKeys.video].boolValue
+    originalLanguage = json[SerializationKeys.originalLanguage].string
+    voteAverage = json[SerializationKeys.voteAverage].float
     title = json[SerializationKeys.title].string
     adult = json[SerializationKeys.adult].boolValue
   }
@@ -84,12 +84,12 @@ public final class DAOPopularMovieResults: NSCoding {
     if let value = voteCount { dictionary[SerializationKeys.voteCount] = value }
     if let value = overview { dictionary[SerializationKeys.overview] = value }
     if let value = originalTitle { dictionary[SerializationKeys.originalTitle] = value }
-    if let value = voteAverage { dictionary[SerializationKeys.voteAverage] = value }
     if let value = popularity { dictionary[SerializationKeys.popularity] = value }
-    if let value = id { dictionary[SerializationKeys.id] = value }
-    if let value = originalLanguage { dictionary[SerializationKeys.originalLanguage] = value }
     if let value = releaseDate { dictionary[SerializationKeys.releaseDate] = value }
+    if let value = id { dictionary[SerializationKeys.id] = value }
     dictionary[SerializationKeys.video] = video
+    if let value = originalLanguage { dictionary[SerializationKeys.originalLanguage] = value }
+    if let value = voteAverage { dictionary[SerializationKeys.voteAverage] = value }
     if let value = title { dictionary[SerializationKeys.title] = value }
     dictionary[SerializationKeys.adult] = adult
     return dictionary
@@ -103,12 +103,12 @@ public final class DAOPopularMovieResults: NSCoding {
     self.voteCount = aDecoder.decodeObject(forKey: SerializationKeys.voteCount) as? Int
     self.overview = aDecoder.decodeObject(forKey: SerializationKeys.overview) as? String
     self.originalTitle = aDecoder.decodeObject(forKey: SerializationKeys.originalTitle) as? String
-    self.voteAverage = aDecoder.decodeObject(forKey: SerializationKeys.voteAverage) as? Float
     self.popularity = aDecoder.decodeObject(forKey: SerializationKeys.popularity) as? Float
-    self.id = aDecoder.decodeObject(forKey: SerializationKeys.id) as? Int
-    self.originalLanguage = aDecoder.decodeObject(forKey: SerializationKeys.originalLanguage) as? String
     self.releaseDate = aDecoder.decodeObject(forKey: SerializationKeys.releaseDate) as? String
+    self.id = aDecoder.decodeObject(forKey: SerializationKeys.id) as? Int
     self.video = aDecoder.decodeBool(forKey: SerializationKeys.video)
+    self.originalLanguage = aDecoder.decodeObject(forKey: SerializationKeys.originalLanguage) as? String
+    self.voteAverage = aDecoder.decodeObject(forKey: SerializationKeys.voteAverage) as? Float
     self.title = aDecoder.decodeObject(forKey: SerializationKeys.title) as? String
     self.adult = aDecoder.decodeBool(forKey: SerializationKeys.adult)
   }
@@ -120,12 +120,12 @@ public final class DAOPopularMovieResults: NSCoding {
     aCoder.encode(voteCount, forKey: SerializationKeys.voteCount)
     aCoder.encode(overview, forKey: SerializationKeys.overview)
     aCoder.encode(originalTitle, forKey: SerializationKeys.originalTitle)
-    aCoder.encode(voteAverage, forKey: SerializationKeys.voteAverage)
     aCoder.encode(popularity, forKey: SerializationKeys.popularity)
-    aCoder.encode(id, forKey: SerializationKeys.id)
-    aCoder.encode(originalLanguage, forKey: SerializationKeys.originalLanguage)
     aCoder.encode(releaseDate, forKey: SerializationKeys.releaseDate)
+    aCoder.encode(id, forKey: SerializationKeys.id)
     aCoder.encode(video, forKey: SerializationKeys.video)
+    aCoder.encode(originalLanguage, forKey: SerializationKeys.originalLanguage)
+    aCoder.encode(voteAverage, forKey: SerializationKeys.voteAverage)
     aCoder.encode(title, forKey: SerializationKeys.title)
     aCoder.encode(adult, forKey: SerializationKeys.adult)
   }
