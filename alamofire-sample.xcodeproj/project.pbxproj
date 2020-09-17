@@ -26,10 +26,8 @@
 		094FB651250715240043EBD3 /* MovieListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094FB650250715240043EBD3 /* MovieListVC.swift */; };
 		094FB65325071A300043EBD3 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094FB65225071A300043EBD3 /* Login.storyboard */; };
 		094FB65625071AFC0043EBD3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094FB65525071AFC0043EBD3 /* LoginVC.swift */; };
-		09B997862511A579004D21E3 /* DAOMoviesMapResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B997842511A579004D21E3 /* DAOMoviesMapResults.swift */; };
-		09B997872511A57A004D21E3 /* DAOMoviesMapBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B997852511A579004D21E3 /* DAOMoviesMapBaseClass.swift */; };
-		09B9978E2511A5D3004D21E3 /* DAOMoviesCodableBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B9978C2511A5D3004D21E3 /* DAOMoviesCodableBaseClass.swift */; };
-		09B9978F2511A5D3004D21E3 /* DAOMoviesCodableResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B9978D2511A5D3004D21E3 /* DAOMoviesCodableResults.swift */; };
+		0995AF7E25134CDE00E22294 /* DAOMoviesCodableBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995AF7C25134CDE00E22294 /* DAOMoviesCodableBaseClass.swift */; };
+		0995AF7F25134CDE00E22294 /* DAOMoviesCodableResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995AF7D25134CDE00E22294 /* DAOMoviesCodableResults.swift */; };
 		09C79A7924282E11000CBCF6 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C79A7824282E11000CBCF6 /* MovieModel.swift */; };
 		09C79A7C242832A7000CBCF6 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C79A7B242832A7000CBCF6 /* MovieCell.xib */; };
 		09C79A7E242832C2000CBCF6 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C79A7D242832C2000CBCF6 /* MovieCell.swift */; };
@@ -56,10 +54,8 @@
 		094FB650250715240043EBD3 /* MovieListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListVC.swift; sourceTree = "<group>"; };
 		094FB65225071A300043EBD3 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		094FB65525071AFC0043EBD3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		09B997842511A579004D21E3 /* DAOMoviesMapResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAOMoviesMapResults.swift; path = ../../../../../../../DAO/DAOMovies/DAOMoviesMapResults.swift; sourceTree = "<group>"; };
-		09B997852511A579004D21E3 /* DAOMoviesMapBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAOMoviesMapBaseClass.swift; path = ../../../../../../../DAO/DAOMovies/DAOMoviesMapBaseClass.swift; sourceTree = "<group>"; };
-		09B9978C2511A5D3004D21E3 /* DAOMoviesCodableBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOMoviesCodableBaseClass.swift; sourceTree = "<group>"; };
-		09B9978D2511A5D3004D21E3 /* DAOMoviesCodableResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOMoviesCodableResults.swift; sourceTree = "<group>"; };
+		0995AF7C25134CDE00E22294 /* DAOMoviesCodableBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOMoviesCodableBaseClass.swift; sourceTree = "<group>"; };
+		0995AF7D25134CDE00E22294 /* DAOMoviesCodableResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOMoviesCodableResults.swift; sourceTree = "<group>"; };
 		09C79A7824282E11000CBCF6 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		09C79A7B242832A7000CBCF6 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		09C79A7D242832C2000CBCF6 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -194,8 +190,8 @@
 		094FB64F250714A20043EBD3 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				09B9977725119D2F004D21E3 /* Codable */,
-				09B9977625119D25004D21E3 /* Mappable */,
+				0995AF7C25134CDE00E22294 /* DAOMoviesCodableBaseClass.swift */,
+				0995AF7D25134CDE00E22294 /* DAOMoviesCodableResults.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -214,24 +210,6 @@
 				09C79A7824282E11000CBCF6 /* MovieModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		09B9977625119D25004D21E3 /* Mappable */ = {
-			isa = PBXGroup;
-			children = (
-				09B997852511A579004D21E3 /* DAOMoviesMapBaseClass.swift */,
-				09B997842511A579004D21E3 /* DAOMoviesMapResults.swift */,
-			);
-			path = Mappable;
-			sourceTree = "<group>";
-		};
-		09B9977725119D2F004D21E3 /* Codable */ = {
-			isa = PBXGroup;
-			children = (
-				09B9978C2511A5D3004D21E3 /* DAOMoviesCodableBaseClass.swift */,
-				09B9978D2511A5D3004D21E3 /* DAOMoviesCodableResults.swift */,
-			);
-			path = Codable;
 			sourceTree = "<group>";
 		};
 		09C79A7724282E03000CBCF6 /* DAO */ = {
@@ -388,20 +366,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0995AF7F25134CDE00E22294 /* DAOMoviesCodableResults.swift in Sources */,
+				0995AF7E25134CDE00E22294 /* DAOMoviesCodableBaseClass.swift in Sources */,
 				094FB65625071AFC0043EBD3 /* LoginVC.swift in Sources */,
 				094FB64E25070C720043EBD3 /* ViewController.swift in Sources */,
 				094FB64625070A6D0043EBD3 /* APIConstant.swift in Sources */,
 				094FB651250715240043EBD3 /* MovieListVC.swift in Sources */,
-				09B9978F2511A5D3004D21E3 /* DAOMoviesCodableResults.swift in Sources */,
 				091553E5250F10DF00617780 /* BaseVC.swift in Sources */,
-				09B997872511A57A004D21E3 /* DAOMoviesMapBaseClass.swift in Sources */,
 				09C79A7E242832C2000CBCF6 /* MovieCell.swift in Sources */,
 				09040B5E2420944D00FB2FF5 /* AppDelegate.swift in Sources */,
 				09040B602420944D00FB2FF5 /* SceneDelegate.swift in Sources */,
 				091553DD250EFDAB00617780 /* GITSApps.swift in Sources */,
-				09B997862511A579004D21E3 /* DAOMoviesMapResults.swift in Sources */,
 				09040B842420954E00FB2FF5 /* APIDataSource.swift in Sources */,
-				09B9978E2511A5D3004D21E3 /* DAOMoviesCodableBaseClass.swift in Sources */,
 				091553E8250F11EB00617780 /* UIImage+Extension.swift in Sources */,
 				09C79A7924282E11000CBCF6 /* MovieModel.swift in Sources */,
 				091553E2250F0D7300617780 /* EditProfileVC.swift in Sources */,
