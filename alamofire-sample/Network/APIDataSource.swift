@@ -71,7 +71,7 @@ class APIDataSource {
                     let movieData = try jsonDecoder.decode(DAOMovieBaseClass.self, from: response.data ?? Data())
                     onSuccess(movieData)
                 } catch {
-                    onFailed("Error Decodable")
+                    onFailed("Error to decode")
                 }
             }
         }
