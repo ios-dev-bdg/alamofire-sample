@@ -12,7 +12,7 @@ import SwiftyJSON
 
 typealias onFailed = (_ message: String?) -> ()
 
-struct APIDataSource {
+class APIDataSource {
     
     static func doGetToken(onSuccess: @escaping () -> Void, onFailed: @escaping onFailed) {
         AF.request("\(APIConstant.MOVIE_BASE_URL)\(APIConstant.MOVIE_TOKEN)?api_key=\(APIConstant.MOVIE_API_KEY)", method: .get, parameters: [:], encoding: URLEncoding.default, headers: [:]).responseJSON(completionHandler: { response in
@@ -59,7 +59,7 @@ struct APIDataSource {
         })
     }
 
-    static func getPopularMovies(type: String, onSuccess: @escaping (_ result: [MovieModel]) -> Void, onFailed: @escaping onFailed) {
+    static func getPopularMovies(type: String, onSuccess: @escaping (_ result: DAOMovieBaseClass) -> Void, onFailed: @escaping onFailed) {
         AF.request("\(APIConstant.MOVIE_BASE_URL)\(APIConstant.MOVIE_LIST)\(type)?api_key=\(APIConstant.MOVIE_API_KEY)", method: .get, parameters: [:], encoding: URLEncoding.default, headers: [:]).responseJSON { (response) in
             switch response.result {
             case .failure(let error):
@@ -68,12 +68,8 @@ struct APIDataSource {
                 print("Data: \(data)")
                 let jsonDecoder = JSONDecoder()
                 do {
-                    let dao = try jsonDecoder.decode(DAOMoviesCodableBaseClass.self, from: response.data ?? Data())
-                    var list: [MovieModel] = []
-                    dao.results?.forEach({ (dt) in
-                        list.append(MovieModel(date: dt.releaseDate, title: dt.title, backdrop: "\(APIConstant.MOVIE_IMAGE_URL)\(dt.backdropPath ?? "")", overview: dt.overview))
-                    })
-                    onSuccess(list)
+                    let movieData = try jsonDecoder.decode(DAOMovieBaseClass.self, from: response.data ?? Data())
+                    onSuccess(movieData)
                 } catch {
                     onFailed("Error Decodable")
                 }

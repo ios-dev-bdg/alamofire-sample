@@ -27,9 +27,9 @@ class MovieCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupData(data: MovieModel?) {
+    func setupData(data: DAOMovieResults?) {
         self.backdropImg.setLoad(isLoad: true, style: .large)
-        self.backdropImg.sd_setImage(with: URL(string: data?.backdrop ?? "")) { (img, err, cache, url) in
+        self.backdropImg.sd_setImage(with: URL(string: "\(APIConstant.MOVIE_IMAGE_URL)\(data?.backdropPath ?? "")")) { (img, err, cache, url) in
             self.backdropImg.setLoad(isLoad: false, style: .large)
             if err == nil {
                 self.backdropImg.image = img
@@ -40,7 +40,7 @@ class MovieCell: UITableViewCell {
         }
         self.titleLbl.text = data?.title ?? ""
         self.descLbl.text = data?.overview ?? ""
-        self.dateLbl.text = data?.date ?? ""
+        self.dateLbl.text = data?.releaseDate ?? ""
     }
 
 }

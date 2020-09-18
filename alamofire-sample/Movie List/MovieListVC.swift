@@ -11,7 +11,7 @@ import UIKit
 class MovieListVC: BaseVC {
     
     @IBOutlet weak var tableView: UITableView?
-    var list: [MovieModel]?
+    var movieData: DAOMovieBaseClass?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,12 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list?.count ?? 0
+        return self.movieData?.results?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell
-        cell?.setupData(data: list?[indexPath.row])
+        cell?.setupData(data: self.movieData?.results?[indexPath.row])
         return cell ?? UITableViewCell()
     }
 }
@@ -51,7 +51,7 @@ extension MovieListVC {
         self.showSpinner(onView: self.view)
         APIDataSource.getPopularMovies(type: "popular", onSuccess: { response in
             self.removeSpinner()
-            self.list = response
+            self.movieData = response
             self.tableView?.reloadData()
         }, onFailed: { message  in
             self.removeSpinner()

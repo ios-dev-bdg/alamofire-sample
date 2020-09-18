@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DAOMoviesCodableResults: Codable {
+class DAOMovieResults: Codable {
 
   enum CodingKeys: String, CodingKey {
     case genreIds = "genre_ids"

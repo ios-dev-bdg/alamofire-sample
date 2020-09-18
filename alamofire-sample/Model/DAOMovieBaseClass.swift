@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DAOMoviesCodableBaseClass: Codable {
+class DAOMovieBaseClass: Codable {
 
   enum CodingKeys: String, CodingKey {
     case totalPages = "total_pages"
@@ -18,10 +18,10 @@ class DAOMoviesCodableBaseClass: Codable {
 
   var totalPages: Int?
   var totalResults: Int?
-  var results: [DAOMoviesCodableResults]?
+  var results: [DAOMovieResults]?
   var page: Int?
 
-  init (totalPages: Int?, totalResults: Int?, results: [DAOMoviesCodableResults]?, page: Int?) {
+  init (totalPages: Int?, totalResults: Int?, results: [DAOMovieResults]?, page: Int?) {
     self.totalPages = totalPages
     self.totalResults = totalResults
     self.results = results
@@ -32,7 +32,7 @@ class DAOMoviesCodableBaseClass: Codable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     totalPages = try container.decodeIfPresent(Int.self, forKey: .totalPages)
     totalResults = try container.decodeIfPresent(Int.self, forKey: .totalResults)
-    results = try container.decodeIfPresent([DAOMoviesCodableResults].self, forKey: .results)
+    results = try container.decodeIfPresent([DAOMovieResults].self, forKey: .results)
     page = try container.decodeIfPresent(Int.self, forKey: .page)
   }
 
