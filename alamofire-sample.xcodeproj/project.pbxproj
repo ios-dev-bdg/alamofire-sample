@@ -99,7 +99,7 @@
 				091553E3250F10D600617780 /* Base */,
 				094FB64A25070C360043EBD3 /* Resources */,
 				091553D6250EFC5D00617780 /* Config */,
-				091553E0250F0D5D00617780 /* EditProfile */,
+				091553E0250F0D5D00617780 /* Edit Profile */,
 				094FB65425071AEE0043EBD3 /* Login */,
 				094FB64725070B5F0043EBD3 /* Movie List */,
 				094FB64425070A5E0043EBD3 /* Constant */,
@@ -133,12 +133,12 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		091553E0250F0D5D00617780 /* EditProfile */ = {
+		091553E0250F0D5D00617780 /* Edit Profile */ = {
 			isa = PBXGroup;
 			children = (
 				091553E1250F0D7300617780 /* EditProfileVC.swift */,
 			);
-			path = EditProfile;
+			path = "Edit Profile";
 			sourceTree = "<group>";
 		};
 		091553E3250F10D600617780 /* Base */ = {
