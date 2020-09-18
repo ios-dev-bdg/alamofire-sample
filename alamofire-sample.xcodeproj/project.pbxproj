@@ -103,7 +103,6 @@
 				094FB65425071AEE0043EBD3 /* Login */,
 				094FB64725070B5F0043EBD3 /* Movie List */,
 				094FB64425070A5E0043EBD3 /* Constant */,
-				09C79A7724282E03000CBCF6 /* DAO */,
 				096AC91E242218EF00AEADB9 /* Model */,
 				09040B822420951700FB2FF5 /* Network */,
 				09040B5D2420944D00FB2FF5 /* AppDelegate.swift */,
@@ -185,13 +184,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		094FB64F250714A20043EBD3 /* Movies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Movies;
-			sourceTree = "<group>";
-		};
 		094FB65425071AEE0043EBD3 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,14 +199,6 @@
 				09C0ECEE2514366100CE7DB3 /* DAOMovieResults.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		09C79A7724282E03000CBCF6 /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-				094FB64F250714A20043EBD3 /* Movies */,
-			);
-			path = DAO;
 			sourceTree = "<group>";
 		};
 		09C79A7A2428329A000CBCF6 /* View */ = {
