@@ -22,7 +22,7 @@ extension UIImage {
         return result
     }
     
-    public func resizedImage() -> UIImage? {
+    func resizedImage() -> UIImage? {
         guard let imageData = self.pngData() else { return nil }
         
         var resizingImage = self
@@ -40,12 +40,17 @@ extension UIImage {
         return resizingImage
     }
     
+    func reduceImage(onSuccess: @escaping (_ img: UIImage?) -> Void) {
+        let imageToUpload = self.resizedImage()
+        onSuccess(imageToUpload)
+    }
+    
 }
 
 extension UIImageView {
     
     //Start or Stop a loading view in an ImageView
-    public func setLoad(isLoad: Bool, style: UIActivityIndicatorView.Style) {
+    func setLoad(isLoad: Bool, style: UIActivityIndicatorView.Style) {
         if isLoad {
             if subviews.count == 0 {
                 let progress = UIActivityIndicatorView(style: style)

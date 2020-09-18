@@ -77,19 +77,14 @@ class APIDataSource {
         }
     }
     
-    static func reduceImage(image: UIImage, onSuccess: @escaping (_ img: UIImage?) -> Void) {
-        let imageToUpload = image.resizedImage()
-        onSuccess(imageToUpload)
-    }
-    
-    public static func doUploadImage(image: UIImage, onSuccess: @escaping (_ id: String, _ message: String) -> Void, onFailed: @escaping onFailed) {
+    static func doUploadImage(image: UIImage, onSuccess: @escaping (_ id: String, _ message: String) -> Void, onFailed: @escaping onFailed) {
         
         guard let url = URL(string: APIConstant.UPLOAD_IMAGE) else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.method = .post
         
         AF.upload(multipartFormData: { (multipart) in
-            self.reduceImage(image: image) { (image) in
+            image.reduceImage() { (image) in
                 let imageToUpload = image
                 multipart.append(imageToUpload?.pngData() ?? Data(), withName: "image", fileName: "image.png", mimeType: "image/png")
             }

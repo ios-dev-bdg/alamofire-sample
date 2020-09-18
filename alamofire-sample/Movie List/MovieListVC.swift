@@ -16,8 +16,8 @@ class MovieListVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        configureView()
-        getPopularMovie()
+        self.configureView()
+        self.getPopularMovie()
     }
 }
 
@@ -25,9 +25,9 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource {
     
     func configureView() {
         self.title = "Movie List"
-        tableView?.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
-        tableView?.delegate = self
-        tableView?.dataSource = self
+        self.tableView?.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

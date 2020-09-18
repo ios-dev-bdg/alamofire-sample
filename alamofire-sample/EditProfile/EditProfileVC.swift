@@ -13,8 +13,8 @@ class EditProfileVC: BaseVC {
 
     @IBOutlet weak var profileImg: UIImageView!
     
-    var imagePicker: UIImagePickerController = UIImagePickerController()
-    var selectedImage: UIImage = UIImage()
+    var imagePicker: UIImagePickerController?
+    var selectedImage: UIImage?
     
     
     override func viewDidLoad() {
@@ -33,16 +33,17 @@ class EditProfileVC: BaseVC {
 extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func openFilePicker() {
-        self.imagePicker.delegate = self
+        self.imagePicker = UIImagePickerController()
+        self.imagePicker?.delegate = self
         
         let cameraAction: UIAlertAction = UIAlertAction.init(title: "Camera", style: .default) { (action) in
-            self.imagePicker.sourceType = .camera
-            self.present(self.imagePicker, animated: true)
+            self.imagePicker?.sourceType = .camera
+            self.present(self.imagePicker ?? UIImagePickerController(), animated: true)
         }
         
         let galleryAction: UIAlertAction = UIAlertAction.init(title: "Gallery", style: .default) { (action) in
-            self.imagePicker.sourceType = .photoLibrary
-            self.present(self.imagePicker, animated: true)
+            self.imagePicker?.sourceType = .photoLibrary
+            self.present(self.imagePicker ?? UIImagePickerController(), animated: true)
         }
         
         let cancelAction: UIAlertAction = UIAlertAction.init(title: "Cancel", style: .cancel) { (action) in }
@@ -70,7 +71,7 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
         } else if let image = info[.originalImage] as? UIImage {
             self.selectedImage = image
         }
-        self.imagePicker.dismiss(animated: true, completion: nil)
+        self.imagePicker?.dismiss(animated: true, completion: nil)
         self.showSpinner(onView: self.view)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.doUploadImage(image: self.selectedImage)
